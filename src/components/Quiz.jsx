@@ -6,32 +6,45 @@ function Quiz() {
   const [score, setScore] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     fetchQuestions();
   }, []);
 
   async function fetchQuestions() {
-    const response = await fetch(
-      "https://opentdb.com/api.php?amount=10"
-    );
+    setLoading(true);
+    setErrorMessage("");
+    setQuestions([]);
+    setCurrentQuestion(0);
+    setScore(0);
+    setIsFinished(false);
 
-    const data = await response.json();
+    try {
+      const response = await fetch(
+        "https://opentdb.com/api.php?amount=10&type=multiple"
+      );
 
-    const cleanedQuestions = data.results.map((question) => {
-      const answers = [
-        question.correct_answer,
-        ...question.incorrect_answers
-      ];
+      const data = await response.json();
 
-      return {
-        question: question.question,
-        correctAnswer: question.correct_answer,
-        answers: answers.sort(() => Math.random() - 0.5)
-      };
-    });
+      const cleanedQuestions = data.results.map((question) => {
+        const answers = [
+          question.correct_answer,
+          ...question.incorrect_answers,
+        ];
 
-    setQuestions(cleanedQuestions);
+        return {
+          question: question.question,
+          correctAnswer: question.correct_answer,
+          answers: answers.sort(() => Math.random() - 0.5),
+        };
+      });
+
+      setQuestions(cleanedQuestions);
+    } catch (error) {
+      setErrorMessage("Something went wrong while loading the quiz.");
+    }
+
     setLoading(false);
   }
 
@@ -49,16 +62,35 @@ function Quiz() {
     }
   }
 
+  function playAgain() {
+    fetchQuestions();
+  }
+
   if (loading) {
-    return <p>Loading questions...</p>;
+    return (
+      <section>
+        <p>Loading questions...</p>
+      </section>
+    );
+  }
+
+  if (errorMessage) {
+    return (
+      <section>
+        <p>{errorMessage}</p>
+        <button onClick={fetchQuestions}>Try again</button>
+      </section>
+    );
   }
 
   if (isFinished) {
     return (
       <section>
         <h2>Quiz finished!</h2>
-        <p>Your score: {score} / {questions.length}</p>
-        <button onClick={() => window.location.reload()}>Play again</button>
+        <p>
+          Your score: {score} / {questions.length}
+        </p>
+        <button onClick={playAgain}>Play again</button>
       </section>
     );
   }
@@ -67,9 +99,13 @@ function Quiz() {
     <section>
       <h2>Question {currentQuestion + 1}</h2>
 
+      <p>
+        {currentQuestion + 1} / {questions.length}
+      </p>
+
       <p
         dangerouslySetInnerHTML={{
-          __html: questions[currentQuestion].question
+          __html: questions[currentQuestion].question,
         }}
       ></p>
 

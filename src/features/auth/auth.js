@@ -1,19 +1,23 @@
-//local storage
+// local storage
 
 export function registerPlayer(username, password) {
-    const player = {
-        username: username,
-        password: password,
-    };
+  const player = {
+    username: username,
+    password: password,
+  };
 
-    localStorage.setItem("player", JSON.stringify(player)); //is this correct?
+  localStorage.setItem("player", JSON.stringify(player));
 }
 
-if (storedPlayer) {
+export function loginPlayer(username, password) {
+  const storedPlayer = JSON.parse(localStorage.getItem("player"));
+
+  if (!storedPlayer) {
     return false;
-}
+  }
 
-const isValidPlayer =
+  const isValidPlayer =
     storedPlayer.username === username && storedPlayer.password === password;
-return isValidPlayer;
 
+  return isValidPlayer;
+}

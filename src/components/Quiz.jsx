@@ -27,6 +27,10 @@ function Quiz() {
 
       const data = await response.json();
 
+      if (!data.results || data.results.length === 0) {
+        throw new Error("No questions found");
+      }
+
       const cleanedQuestions = data.results.map((question) => {
         const answers = [
           question.correct_answer,
@@ -42,7 +46,8 @@ function Quiz() {
 
       setQuestions(cleanedQuestions);
     } catch (error) {
-      setErrorMessage("Something went wrong while loading the quiz.");
+      console.log("Quiz loading error:", error);
+      setErrorMessage("The quiz did not load. Please try again.");
     }
 
     setLoading(false);
@@ -87,9 +92,11 @@ function Quiz() {
     return (
       <section>
         <h2>Quiz finished!</h2>
+
         <p>
           Your score: {score} / {questions.length}
         </p>
+
         <button onClick={playAgain}>Play again</button>
       </section>
     );

@@ -6,8 +6,8 @@ import { loginPlayer } from "./auth";
 
 
 
-setUsername("");
-setPassword("");
+//setUsername(""); do I need to use these two?
+//setPassword("");
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -22,7 +22,7 @@ function Login() {
     else {
         alert("Invalid username or password!");
     };
-    
+
 return (
     <div>
         <h2>Login to start playing:</h2>

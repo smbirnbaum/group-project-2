@@ -4,10 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { loginPlayer } from "./auth";
 
-// setUsername(""); do I need to use these two?
-// setPassword("");
-
-function Login() {
+function Login({ setIsLoggedIn }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,13 +15,10 @@ function Login() {
 
     if (isValidPlayer) {
       alert("Logged in! Start playing!");
+      setIsLoggedIn(true);
     } else {
       alert("Invalid username or password!");
     }
-
-    // Optional: clear the form after login attempt
-    // setUsername("");
-    // setPassword("");
   };
 
   return (

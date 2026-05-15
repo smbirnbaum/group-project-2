@@ -1,0 +1,352 @@
+:root {
+<<<<<<< Updated upstream
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+=======
+  --text: #221c2b;
+  --text-soft: #524b63;
+  --bg: #f9f5ff;
+>>>>>>> Stashed changes
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+<<<<<<< Updated upstream
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+=======
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+>>>>>>> Stashed changes
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+<<<<<<< Updated upstream
+    font-size: 16px;
+=======
+    font-size: 16px; 
+>>>>>>> Stashed changes
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+<<<<<<< Updated upstream
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+=======
+    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+>>>>>>> Stashed changes
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+<<<<<<< Updated upstream
+=======
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+>>>>>>> Stashed changes
+body {
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+<<<<<<< Updated upstream
+=======
+
+
+/* Custom responsive additions */
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #faf5ff 0%, #efe6ff 100%);
+}
+
+#root {
+  width: min(100%, 1126px);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+main {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  text-align: center;
+  color: #381760;
+}
+
+main > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+main > div > div,
+section {
+  width: 100%;
+  max-width: 560px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 26px;
+  box-shadow: 0 24px 40px rgba(124, 58, 237, 0.12);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 14px 16px;
+  color: #221c2b;
+}
+
+input:focus {
+  outline: none;
+  border-color: rgba(124, 58, 237, 0.8);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.16);
+}
+
+button {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  background: rgba(124, 58, 237, 0.18);
+  color: #4c1d95;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  padding: 14px 18px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+button:focus-visible {
+  background: rgba(124, 58, 237, 0.28);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.16);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, 0.36);
+  outline-offset: 2px;
+}
+
+section > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+section > div button {
+  background: rgba(170, 59, 255, 0.16);
+  border: 1px solid rgba(170, 59, 255, 0.35);
+  color: #4c1d95;
+  min-height: 56px;
+  padding: 16px 14px;
+  text-align: center;
+}
+
+section > div button:hover,
+section > div button:focus-visible {
+  background: rgba(170, 59, 255, 0.28);
+}
+
+section > div button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  main > div,
+  section > div {
+    max-width: 100%;
+  }
+
+  section > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  #root {
+    padding: 18px 12px;
+  }
+
+  main {
+    gap: 18px;
+  }
+
+  main > div,
+  section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    gap: 16px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  input,
+  button,
+  section > div button {
+    min-height: 56px;
+  }
+}
+
+
+body {
+  background: linear-gradient(180deg, #f5efff 0%, #efe1ff 100%);
+}
+
+#root {
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+main {
+  align-self: center;
+  width: min(100%, 1040px);
+}
+
+main > div {
+  justify-content: center;
+}
+
+main > div > div,
+section {
+  background: rgba(250, 245, 255, 0.92);
+  border-color: rgba(124, 58, 237, 0.16);
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+p {
+  color: #4e3c6c;
+}
+
+button,
+input {
+  color: #3f2b71;
+}
+
+>>>>>>> Stashed changes

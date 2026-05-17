@@ -7,7 +7,6 @@ import "./App.css";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-<<<<<<< Updated upstream
   return (
     <main>
       <h1>Trivia Quiz Game</h1>
@@ -15,29 +14,11 @@ function App() {
       {isLoggedIn ? (
         <Quiz />
       ) : (
-=======
-  if (!isLoggedIn) {
-    return (
-      <main>
-        <h1>Trivia Quiz Game</h1>
-
->>>>>>> Stashed changes
         <div>
           <Register />
           <Login setIsLoggedIn={setIsLoggedIn} />
         </div>
-<<<<<<< Updated upstream
       )}
-=======
-      </main>
-    );
-  }
-
-  return (
-    <main>
-      <h1>Trivia Quiz Game</h1>
-      <Quiz />
->>>>>>> Stashed changes
     </main>
   );
 }
